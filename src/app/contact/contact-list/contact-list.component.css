@@ -1,0 +1,27 @@
+div.addBtnPanel {
+   margin-top:-57px !important;
+   margin-left: 200px !important;
+   position: fixed;
+} 
+
+.errors {
+    color: #8B1E1E;
+    border: 2px solid red;
+    padding: 10px;
+    width: 85%;
+    font-size: 90%;
+    background-color: #F8E1E4;
+}
+
+.mat-mini-fab .mat-button-wrapper {
+    padding: 0 0 !important; 
+    display: inline-block;
+    line-height: 8px;
+   transform: scale(0.7);
+  }
+
+  div.noContacts {
+    margin-left: 5px;
+    margin-top: 5px;
+    font-size: 0.85em;
+  }

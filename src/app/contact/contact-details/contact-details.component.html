@@ -1,0 +1,51 @@
+<div class="formContainer">
+		<div *ngIf="isInValidInput" fxLayout="column" fxFlexFill fxLayoutAlign="top">
+				<p class="errors" mat-line><strong>Errors!</strong><br>{{errorMessage}}</p> 
+		</div>
+		<!-- formin rakennus -->
+		<div fxLayout="{{isSmallScreen ? 'column' : 'row'}}" fxFlexFill fxLayoutAlign="top" fxLayoutGap="10px">
+		<div class="formColumn">
+				<input type="hidden" id="contactid" [(ngModel)]="contact.id" #ctrl="ngModel"/>
+				<mat-input-container floatPlaceholder="auto">
+					<input matInput placeholder="First name" [(ngModel)]="contact.firstName" #ctrl="ngModel">
+				</mat-input-container>
+				<br>
+				<mat-input-container floatPlaceholder="auto">
+					<input matInput placeholder="Last name" [(ngModel)]="contact.lastName" #ctrl="ngModel" >
+				</mat-input-container>
+				<br>
+				<mat-input-container floatPlaceholder="auto">
+					<input matInput placeholder="Phone number" [(ngModel)]="contact.phone" #ctrl="ngModel">
+				</mat-input-container>
+				<br>
+				
+				<a *ngIf="contact.avatar"><img class="imgPanel"  src="{{contact.avatar}}"/></a>
+ 
+
+				<br>
+				<mat-radio-group [(ngModel)]="contact.gender">
+					<mat-radio-button value="0">Female</mat-radio-button>
+					<mat-radio-button value="1">Male</mat-radio-button>
+				</mat-radio-group>
+		</div>	
+		<div class="formColumn">
+				<mat-input-container floatPlaceholder="auto">
+					<input matInput  matInput placeholder="Street Address" [(ngModel)]="contact.streetAddress" #ctrl="ngModel">
+				</mat-input-container>
+				<br>
+				<mat-input-container floatPlaceholder="auto">
+					<input matInput placeholder="City" [(ngModel)]="contact.city" #ctrl="ngModel">
+				</mat-input-container>
+				<br>
+				<app-map 
+					[streetAddress]="contact.streetAddress"
+					[city]="contact.city">
+				</app-map>
+		</div>	
+	</div>
+		<button color="primary" mat-raised-button (click)="onClickContactEvent()">{{btnName}}</button>
+		<button *ngIf="showRemoveBtn" color="warn" mat-raised-button (click)="onContactRemove()">
+			Remove Contact
+		</button>
+
+</div>

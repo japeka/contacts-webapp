@@ -1,0 +1,6 @@
+<iframe *ngIf="streetAddress || city"
+    width="275" height="200" frameborder="0" style="border:0" 
+    [src]='mapLocation | safe'
+    allowfullscreen>
+</iframe>
+<p *ngIf="!streetAddress && !city"> No Address Available </p>

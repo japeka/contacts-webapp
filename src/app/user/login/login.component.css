@@ -1,0 +1,26 @@
+.loginTitle {padding-left: 5px;}
+
+h2 {
+    font-family: 'Antic Slab';
+}
+
+.loginPanel {
+    padding-left: 8vh !important;
+    width: 50vh !important;
+} 
+
+.loginCardHeader{
+    background-color: #E3E6F1;
+} 
+
+.inputContainer {
+    display: flex;
+}
+
+.matIconStyle {
+    position: relative; top: 18px; color: #3f51b5;
+} 
+
+.loginButton {
+    outline: 1px solid rgba(0,0,0,0.12);
+}

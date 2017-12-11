@@ -1,0 +1,31 @@
+<div fxLayout="row" fxFlexFill fxLayoutAlign="space-around center">
+  <div class="loginPanel">
+  <mat-card>
+    <mat-card-header class="loginCardHeader">
+      <mat-card-title>
+        <h2 class="loginTitle">Login Form</h2>
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="inputContainer">
+            <mat-icon class="mat-icon material-icons matIconStyle" mat-list-icon="" matsuffix="" role="img">person</mat-icon>		  
+            <mat-input-container>
+              <input type="text" matInput placeholder="Username *" [(ngModel)]="user.userName">
+            </mat-input-container>
+        </div>
+        
+        <div class="inputContainer">
+              <mat-icon class="mat-icon material-icons matIconStyle" mat-list-icon="" matsuffix="" role="img">lock</mat-icon>		  
+              <mat-input-container>
+                <input type="password" matInput placeholder="Password *" [(ngModel)]="user.password">
+              </mat-input-container>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button class="loginButton" 
+          (click)="onLoginEvent()" mat-button color="primary">Login</button>    
+    </mat-card-actions>
+  </mat-card>
+</div>
+</div>

@@ -1,0 +1,89 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+mat-sidenav {
+    background-color: #F7F7F2 !important;
+}
+
+
+div.my-content button {
+  background-color: #F7F7F2 !important;
+}
+
+div.container {
+    position: relative;
+    top: -10px;
+    width: 98vw !important;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.example-container {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+.example-sidenav-content {
+    display: flex;
+    height: 75vh !important;
+    background-color: #FDFAF9;
+    justify-content: top;
+}
+
+.example-sidenav {
+    padding: 0;
+}
+
+.container h1 {
+    font-size: 1.85em;         
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.container h1::first-letter {
+    font-size: 2.3em;         
+    color: #3f51b5;    
+}
+
+.matIconCustom {
+    cursor:pointer;
+}
+
+.matMenuItem {
+    font-size: 0.80em;
+} 
+
+.parent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    align-self: center;
+}
+
+.personIcon {
+    border:1px solid rgba(0,0,0,0.12) !important; 
+    padding: 3px !important; 
+    border-radius:50% !important;
+} 
+
+.loggedUser {
+    font-size: 0.65em;
+}
+
+
+
+@media only screen and (max-width: 377px) {
+    .personIcon {
+       display: none; 
+    }    
+
+    .loggedUser {
+        display: none; 
+     }
+}

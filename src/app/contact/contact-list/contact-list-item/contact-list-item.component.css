@@ -1,0 +1,49 @@
+mat-list-item {
+    width: 92vw !important;
+}
+
+mat-list-item mat-icon {
+    font-size: 2.0em !important;
+}
+
+mat-list-item h4 {
+    cursor: pointer !important;    
+    font-size: 0.98em !important;
+}
+
+mat-list-item h4:first-letter {
+    text-transform: uppercase !important;
+}
+
+mat-list-item h4 a {
+    text-decoration: none;
+}    
+
+mat-list-item:hover  {
+    background-color: #EBEBF0;
+}
+
+mat-list-item mat-icon a img {
+    transition: transform .20s ease-in-out;
+}
+
+mat-list-item mat-icon a img:hover  {
+    transform: scale(1.92);    
+}
+
+mat-list-item p a {
+    text-decoration: none;
+    font-size: 0.98em !important;
+}    
+
+mat-icon a {
+    text-decoration: none;
+}
+
+mat-list-item span mat-icon {
+    cursor: pointer !important;    
+}
+
+img.avatar {
+    width: 1.2em;border-radius: 50%;box-shadow: 1px 1px rgba(0,0,0,0.14);
+} 

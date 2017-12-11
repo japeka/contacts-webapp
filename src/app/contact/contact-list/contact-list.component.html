@@ -1,0 +1,8 @@
+<div fxLayout="row" fxFill> 
+  <div fxFlex="" style="overflow-y: auto;" fxLayout="column" fxLayoutAlign="top left">
+    <div class="noContacts" *ngIf="contacts.length===0">No contacts available</div>
+    <mat-list dense *ngFor="let contact of contacts | customSort: 'lastName'" (click)="onContactSelect(contact)">
+      <app-contact-list-item [contact]="contact" (contactRemoveSelected) = "onRemoveSelect(contact)"></app-contact-list-item>
+    </mat-list>
+  </div>
+</div>

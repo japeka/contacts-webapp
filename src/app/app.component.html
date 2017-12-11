@@ -1,0 +1,42 @@
+<div class="container">
+        <div class="parent">
+           <div>
+               <mat-icon (click)="sidenav.toggle()" mat-list-icon class="mat-icon material-icons matIconCustom"
+               matsuffix="" role="img" aria-hidden="true">menu</mat-icon> 
+               <h1>{{title}}</h1>
+           </div>
+
+           <div *ngIf="user">
+               <mat-icon mat-list-icon class="mat-icon material-icons personIcon"
+                 matsuffix="" role="img" aria-hidden="true">person</mat-icon> 
+                <small class="loggedUser" mat-icon-button [matMenuTriggerFor]="menu">{{user.firstName}} {{user.lastName}}</small> 
+                <button mat-icon-button  [matMenuTriggerFor]="menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item>
+                     <span class="matMenuItem">User Profile</span>
+                  </button>
+                  <button mat-menu-item>
+                     <span class="matMenuItem">Logout</span> 
+                  </button>
+                </mat-menu>
+           </div>
+        </div>                
+
+        <mat-sidenav-container class="example-container">
+            <mat-sidenav #sidenav class="example-sidenav">
+                <div class="my-content">
+                    <button class="mat-raised-button" (click)="sidenav.toggle(); showContactsList()" mat-raised-button="">Contacts List</button>
+                </div>                        
+                <div class="my-content">
+                    <button class="mat-raised-button" mat-raised-button (click)="sidenav.toggle(); addNewContact()">New Contact</button>                   
+                </div>                        
+            </mat-sidenav>
+        
+            <div class="example-sidenav-content">
+                <router-outlet></router-outlet>
+            </div>
+            
+        </mat-sidenav-container>
+    </div>
