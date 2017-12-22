@@ -27,17 +27,19 @@ import { ContactListItemComponent } from './contact/contact-list/contact-list-it
 import { ContactDetailsComponent } from './contact/contact-details/contact-details.component';
 import { MapComponent } from './map/map/map.component';
 import { LoginComponent } from './user/login/login.component';
+import { ErrorComponent } from './error/error.component';
 
 // services //
 import { ContactLocalStorageService } from './contact/services/contact-local-storage.service';
 import { ContactService } from './contact/services/contact.service';
 import { ContactHttpService } from './contact/services/contact-http.service';
 import { AuthenticationService } from './user/services/authentication.service';
+import { AuthenticationHttpService } from './user/services/authentication-http.service';
 import { SharedService } from './shared/shared.service';
 
-// interceptors testing //
+// interceptors //
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ContactHttpInterceptor } from './contact/services/contact.interceptor';
+import { UniversalHttpInterceptor } from './interceptor/universal.interceptor';
 
 // guard //
 import { AuthenticationGuard } from './guard/authentication.guard';
@@ -59,7 +61,8 @@ import { CustomSortPipe } from './contact/pipes/custom-sort.pipe';
     SafePipe,
     MapComponent,
     CustomSortPipe,
-    LoginComponent
+    LoginComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
@@ -87,10 +90,11 @@ import { CustomSortPipe } from './contact/pipes/custom-sort.pipe';
     ContactHttpService,
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: ContactHttpInterceptor,
+      useClass: UniversalHttpInterceptor,
       multi: true
     },
     AuthenticationService,
+    AuthenticationHttpService,
     AuthenticationGuard,
     SharedService
   ],

@@ -24,3 +24,10 @@ h2 {
 .loginButton {
     outline: 1px solid rgba(0,0,0,0.12);
 }
+
+.error {
+    padding: 3px;
+    padding-left: 7px; 
+    background-color: rgb(247, 228, 228);
+    color:red;
+} 

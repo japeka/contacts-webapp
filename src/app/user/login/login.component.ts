@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../services/authentication.service';
 import { SharedService } from '../../shared/shared.service';
-
 import { User } from '../user';
-import { Router } from '@angular/router';  
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,20 +11,29 @@ import { Router } from '@angular/router';
 })
 
 export class LoginComponent implements OnInit {
-  user: User;
+  user: any = {};
+  _user: User;
+  loginFailed: boolean;
   constructor(private authenticationService: AuthenticationService,
     private sharedService: SharedService,
-    private router: Router) { 
-     this.user = new User("demo@demo.com","password","Teppo","Testaaja");   
+    private router: Router) {
+      this.loginFailed = false;
+      this._user = new User();
   }
 
-  ngOnInit() {
-  }
-  
+  ngOnInit() {}
+
   onLoginEvent(): void {
-    if(this.authenticationService.login(this.user)) {
-      this.sharedService.emitChange(this.user);
-      this.router.navigate(['/contacts']);
-    } 
+    this.authenticationService.login(this.user)
+      .subscribe( token => {
+        if (token && token.access_token ) {
+          this.loginFailed = false;
+          this.sharedService.emitChange(this.authenticationService.getAuthenticatedUser());
+          this.router.navigate(['/contacts']);
+        } else {
+          this.loginFailed = true;
+        }
+      });
+
   }
 }

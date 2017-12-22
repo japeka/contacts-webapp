@@ -2,7 +2,6 @@
 		<div *ngIf="isInValidInput" fxLayout="column" fxFlexFill fxLayoutAlign="top">
 				<p class="errors" mat-line><strong>Errors!</strong><br>{{errorMessage}}</p> 
 		</div>
-		<!-- formin rakennus -->
 		<div fxLayout="{{isSmallScreen ? 'column' : 'row'}}" fxFlexFill fxLayoutAlign="top" fxLayoutGap="10px">
 		<div class="formColumn">
 				<input type="hidden" id="contactid" [(ngModel)]="contact.id" #ctrl="ngModel"/>
@@ -18,10 +17,7 @@
 					<input matInput placeholder="Phone number" [(ngModel)]="contact.phone" #ctrl="ngModel">
 				</mat-input-container>
 				<br>
-				
 				<a *ngIf="contact.avatar"><img class="imgPanel"  src="{{contact.avatar}}"/></a>
- 
-
 				<br>
 				<mat-radio-group [(ngModel)]="contact.gender">
 					<mat-radio-button value="0">Female</mat-radio-button>

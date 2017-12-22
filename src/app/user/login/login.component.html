@@ -11,7 +11,7 @@
         <div class="inputContainer">
             <mat-icon class="mat-icon material-icons matIconStyle" mat-list-icon="" matsuffix="" role="img">person</mat-icon>		  
             <mat-input-container>
-              <input type="text" matInput placeholder="Username *" [(ngModel)]="user.userName">
+              <input type="text" matInput placeholder="Username *" [(ngModel)]="user.username">
             </mat-input-container>
         </div>
         
@@ -21,7 +21,11 @@
                 <input type="password" matInput placeholder="Password *" [(ngModel)]="user.password">
               </mat-input-container>
         </div>
+        <div *ngIf="loginFailed" class="error inputContainer">
+          Invalid user credentials!
+        </div>
     </mat-card-content>
+
     <mat-card-actions>
       <button mat-raised-button class="loginButton" 
           (click)="onLoginEvent()" mat-button color="primary">Login</button>    

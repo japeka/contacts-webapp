@@ -5,28 +5,33 @@ import { ContactListItemComponent } from '../contact/contact-list/contact-list-i
 import { ContactDetailsComponent } from '../contact/contact-details/contact-details.component';
 import { LoginComponent } from '../user/login/login.component';
 import { AuthenticationGuard } from '../guard/authentication.guard';
+import { ErrorComponent } from '../error/error.component';
 
 export const routes: Routes = [
-    {   path: '', 
-        component: LoginComponent
+    {   path: '',
+        component: ContactListComponent,
+        canActivate: [AuthenticationGuard]
     },
     {   path: 'login',
         component: LoginComponent
     },
-    { 
-        path: 'contacts', 
+    {
+        path: 'contacts',
         component: ContactListComponent,
         canActivate: [AuthenticationGuard]
     },
-    { 
+    {
         path: 'add-contact',
         component: ContactDetailsComponent,
         canActivate: [AuthenticationGuard]
     },
-    { 
-        path: 'contacts/:id', 
+    {
+        path: 'contacts/:id',
         component: ContactDetailsComponent,
         canActivate: [AuthenticationGuard]
+    },
+    {
+        path: 'error/:status',
+        component: ErrorComponent
     }
 ];
-  
