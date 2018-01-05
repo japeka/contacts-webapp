@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Contact } from '../contact';
-import * as _ from "lodash";
+import * as _ from 'lodash';
 
 @Pipe({
   name: 'contactAddress'
@@ -8,7 +8,7 @@ import * as _ from "lodash";
 export class ContactAddressPipe implements PipeTransform {
   transform(contact: Contact, args?: any): any {
     let addrParts = [contact.streetAddress || null, contact.city || null];
-    addrParts = _.reject(addrParts, _.isNull);    
+    addrParts = _.reject(addrParts, _.isNull);
     return addrParts.join(', ');
   }
 

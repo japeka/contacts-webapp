@@ -69,7 +69,7 @@ export class ContactDetailsComponent implements OnInit {
                 this.contact.city = '';
                 this.contact.avatar = '';
                 this.isInValidInput = false;
-                this.router.navigate(['/contacts']);
+                this.router.navigate(['/ca/contacts']);
               },
               err => {
                 this.errorMessage = 'Error Code: ' + err.status + ' received. New contact was not created.';
@@ -88,7 +88,7 @@ export class ContactDetailsComponent implements OnInit {
       } else {
         this.contactService.updateContact(this.contact)
          .subscribe( (_contact) => {
-            this.router.navigate(['/contacts']);
+            this.router.navigate(['/ca/contacts']);
          },
          err => {
             this.errorMessage = 'Error Code: ' + err.status + ' received. Contact was not updated.';
@@ -101,18 +101,18 @@ export class ContactDetailsComponent implements OnInit {
   onContactRemove(): void {
     this.contactService.deleteContact(this.contact)
       .subscribe((_contact) => {
-        this.router.navigate(['/contacts']);
+        this.router.navigate(['/ca/contacts']);
       },
       err => {
         this.errorMessage = 'Error Code: ' + err.status + ' received. Contact was not removed.';
         this.isInValidInput = true;
       }
     );
-    this.router.navigate(['/contacts']);
+    this.router.navigate(['/ca/contacts']);
   }
 
   isValidPhoneNumber(number: string): Boolean {
-    if(number) {
+    if (number) {
       return /^\d{2,3}-?\d{4,15}$/.test(number);
     } else {
       return false;

@@ -16,15 +16,11 @@ export class AuthenticationService {
   }
 
   login(user: User): Observable<Token> {
-    if (user.username && user.password && user.username.length > 3 && user.password.length > 3 ) {
       return this.http.authenticate(user).map( (token) => {
          localStorage.setItem('currentUser', JSON.stringify({ username: user.username, token: token.access_token }));
          this._token = token.access_token;
          return token;
       });
-    } else {
-      return Observable.of(null);
-    }
   }
 
   logout(): void {
@@ -39,6 +35,7 @@ export class AuthenticationService {
     return false;
   }
 
+  // TODO NEXT GET User name from Azure
   getAuthenticatedUser(): User {
     const token = JSON.parse(localStorage.getItem('currentUser'));
     if (token && token.username) {

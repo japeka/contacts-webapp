@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthenticationService } from './user/services/authentication.service';
-import { SharedService } from './shared/shared.service';
-import { User } from './user/user';
+// import { Router } from '@angular/router';
+// import { AuthenticationService } from './user/services/authentication.service';
+// import { SharedService } from './shared/shared.service';
+// import { User } from './user/user';
 
 @Component({
   selector: 'app-root',
@@ -11,32 +11,33 @@ import { User } from './user/user';
 })
 
 export class AppComponent {
-  title = 'Contacts App';
+  // title = 'Contacts App';
 
-  user: User;
+  // user: User;
   constructor(
-    private router: Router,
+/*    private router: Router,
     private sharedService: SharedService,
-    private authService: AuthenticationService) {
-
+  private authService: AuthenticationService */) {
+    /*
     sharedService.changeEmitted$.subscribe(
         user_ => {
         this.user = user_;
     });
     const _user = this.authService.getAuthenticatedUser();
     this.user = _user ? _user : null;
+    */
   }
 
-  logout(): void {
+  /*logout(): void {
     this.authService.logout();
     this.router.navigate(['/login']);
-  }
+  }*/
 
-  showContactsList(): void {
+  /*showContactsList(): void {
     this.router.navigate(['/contacts']);
-  }
+  }*/
 
-  addNewContact(): void {
+  /*addNewContact(): void {
     this.router.navigate(['/add-contact']);
-  }
+  }*/
 }

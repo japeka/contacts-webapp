@@ -3,11 +3,14 @@ import { HttpInterceptor, HttpErrorResponse, HttpResponse, HttpRequest, HttpEven
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/do';
+import { ErrorDialogService } from '../error/services/error-dialog.service';
 
 @Injectable()
 export class UniversalHttpInterceptor implements HttpInterceptor {
     token: string;
-    constructor(private router: Router) {}
+    public result: any;
+    constructor(private router: Router,
+        private errorDialogService: ErrorDialogService) {}
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
             const obj = JSON.parse(localStorage.getItem('currentUser'));
             this.token = obj ? obj.token : null;
@@ -15,11 +18,8 @@ export class UniversalHttpInterceptor implements HttpInterceptor {
             return next.handle(req).do((event: HttpEvent<any>) => {
         }, (err: any) => {
            if (err instanceof HttpErrorResponse) {
-               if (err.status === 401 ) {
-                 this.router.navigate(['/login']);
-               } else {
-                 this.router.navigate(['/error/' + err.status]);
-               }
+             this.errorDialogService.open(err.status)
+               .subscribe(res => this.result = res);
            }
         });
     }

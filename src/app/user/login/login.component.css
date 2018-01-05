@@ -5,8 +5,9 @@ h2 {
 }
 
 .loginPanel {
-    padding-left: 8vh !important;
-    width: 50vh !important;
+    padding-top: 4vh !important;
+    padding-left: 6vh !important;
+    width: 55vh !important;
 } 
 
 .loginCardHeader{

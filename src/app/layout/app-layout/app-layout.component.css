@@ -1,4 +1,3 @@
-/*
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 mat-sidenav {
@@ -77,8 +76,6 @@ div.container {
     font-size: 0.65em;
 }
 
-
-
 @media only screen and (max-width: 377px) {
     .personIcon {
        display: none; 
@@ -88,4 +85,3 @@ div.container {
         display: none; 
      }
 }
-*/

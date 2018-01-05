@@ -1,11 +1,11 @@
 <mat-list-item>
   <mat-icon mat-list-icon>
-    <a routerLink="/contacts/{{contact.id}}">
+    <a routerLink="/ca/contacts/{{contact.id}}">
       <img class="avatar" src="{{contact.avatar}}"/>
     </a>
   </mat-icon>
-  <h4 mat-line><a routerLink="/contacts/{{contact.id}}"> {{contact.lastName | ucfirst}} {{contact.firstName | ucfirst}} </a></h4>
-  <p mat-line><a routerLink="/contacts/{{contact.id}}"> {{ contact | contactAddress }} </a></p>
+  <h4 mat-line><a routerLink="/ca/contacts/{{contact.id}}"> {{contact.lastName | ucfirst}} {{contact.firstName | ucfirst}} </a></h4>
+  <p mat-line><a routerLink="/ca/contacts/{{contact.id}}"> {{ contact | contactAddress }} </a></p>
   <span>
       <mat-icon mat-list-icon (click)="onRemoveSelect(contact)" class="mat-icon material-icons"
       matsuffix="" role="img" aria-hidden="true">delete</mat-icon>

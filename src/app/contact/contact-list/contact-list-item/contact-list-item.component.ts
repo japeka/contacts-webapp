@@ -1,5 +1,5 @@
 import { Component,Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { Router } from '@angular/router';  
+import { Router } from '@angular/router';
 import { Contact } from '../../contact';
 
 @Component({
@@ -11,12 +11,12 @@ export class ContactListItemComponent implements OnInit {
 
   @Input() contact: Contact;
   @Output() contactRemoveSelected: EventEmitter<Contact>;
-  constructor(private router: Router) { 
+  constructor(private router: Router) {
     this.contactRemoveSelected = new EventEmitter();
   }
 
   ngOnInit() {}
-  
+
   onRemoveSelect(contact) {
     this.contactRemoveSelected.emit(contact);
   }
