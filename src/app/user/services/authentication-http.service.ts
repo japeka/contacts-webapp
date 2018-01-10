@@ -20,5 +20,10 @@ export class AuthenticationHttpService {
      });
   }
 
+  getUserIdentity(): Observable<User> {
+     return this.http.get(environment.endpointUrl + '/user').map( (response) => {
+        return response as User;
+     });
+  }
 
 }

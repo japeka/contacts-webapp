@@ -38,32 +38,3 @@ export const routes: Routes = [
         ]
     }
 ];
-
-/*export const routes: Routes = [
-    {   path: '',
-        component: ContactListComponent,
-        canActivate: [AuthenticationGuard]
-    },
-    {   path: 'login',
-        component: LoginComponent
-    },
-    {
-        path: 'contacts',
-        component: ContactListComponent,
-        canActivate: [AuthenticationGuard]
-    },
-    {
-        path: 'add-contact',
-        component: ContactDetailsComponent,
-        canActivate: [AuthenticationGuard]
-    },
-    {
-        path: 'contacts/:id',
-        component: ContactDetailsComponent,
-        canActivate: [AuthenticationGuard]
-    },
-    {
-        path: 'error/:status',
-        component: ErrorComponent
-    }
-];*/

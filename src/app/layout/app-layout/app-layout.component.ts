@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../../user/services/authentication.service';
-import { SharedService } from '../../shared/shared.service';
+// import { SharedService } from '../../shared/shared.service';
 import { User } from '../../user/user';
 
 @Component({
@@ -16,14 +16,16 @@ export class AppLayoutComponent implements OnInit {
 
   constructor(
        private router: Router,
-        private sharedService: SharedService,
-      private authService: AuthenticationService ) {
-        sharedService.changeEmitted$.subscribe(
+       // private sharedService: SharedService,
+       private authService: AuthenticationService ) {
+
+       /*sharedService.changeEmitted$.subscribe(
             user_ => {
             this.user = user_;
-        });
-        const _user = this.authService.getAuthenticatedUser();
-        this.user = _user ? _user : null;
+       });*/
+
+       const u = JSON.parse(localStorage.getItem('currentUser'));
+       this.user = u;
    }
 
   ngOnInit() {

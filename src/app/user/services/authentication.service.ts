@@ -35,19 +35,18 @@ export class AuthenticationService {
     return false;
   }
 
-  // TODO NEXT GET User name from Azure
-  getAuthenticatedUser(): User {
+  getAuthenticatedUser(): Observable<User> {
     const token = JSON.parse(localStorage.getItem('currentUser'));
     if (token && token.username) {
-      const parts = token.username.split('@');
-      const names = parts[0].split('.');
-      this.user.firstName = names[0] ? names[0] : 'Eric';
-      this.user.lastName = names[1] ? names[1] : 'Hansen';
-      this.user.username = token.username;
-      this.user.password = '';
-      return this.user;
+      return this.http.getUserIdentity().map( (user) => {
+        localStorage.removeItem('currentUser');
+        localStorage.setItem('currentUser', JSON.stringify({ username: token.username,
+              firstName: user.firstName, lastName: user.lastName,
+                token: token.token }));
+        return user;
+     });
     } else {
-      return null;
+      return Observable.of(null);
     }
   }
 

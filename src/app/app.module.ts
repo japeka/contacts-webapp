@@ -36,7 +36,7 @@ import { ContactService } from './contact/services/contact.service';
 import { ContactHttpService } from './contact/services/contact-http.service';
 import { AuthenticationService } from './user/services/authentication.service';
 import { AuthenticationHttpService } from './user/services/authentication-http.service';
-import { SharedService } from './shared/shared.service';
+// import { SharedService } from './shared/shared.service';
 import { ErrorDialogService } from './error/services/error-dialog.service';
 
 // interceptors //
@@ -101,7 +101,7 @@ import { AppLayoutComponent } from './layout/app-layout/app-layout.component';
     AuthenticationService,
     AuthenticationHttpService,
     AuthenticationGuard,
-    SharedService,
+    // SharedService,
     ErrorDialogService
   ],
   entryComponents: [
